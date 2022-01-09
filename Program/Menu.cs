@@ -106,7 +106,6 @@ namespace ExoGarage.Program
                     _writer.Display("2. Voiture - 4 roues.");
                     vehiculeType = _reader.ReadId(1, 2);
                 }
-                //Console.WriteLine(vehiculeType);
 
                 VehiculeState vehiculeState = _garage.GetVehiculeState();
 
@@ -173,6 +172,7 @@ namespace ExoGarage.Program
 
                     _writer.Display("Entrer le nombre de kilometres du vehicule :");
                     // Je recup les kms en int et relance la demande si user tape un string
+                    Console.Clear();
                     int vehiculeKms = _garage.GetvehiculeKms();
 
                     vehicule.State = vehiculeState;

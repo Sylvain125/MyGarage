@@ -85,7 +85,7 @@ namespace ExoGarage.Model
                 _writer.Display("2 - Moyen");
                 _writer.Display("3 - Mauvais");
 
-                var vehiculeState = Console.ReadLine();
+                var vehiculeState = _reader.ReadText();
                 int numberState;
 
                 bool succes = int.TryParse(vehiculeState, out numberState);
@@ -95,8 +95,6 @@ namespace ExoGarage.Model
                 }
                 else
                 {
-                    // je sais pas si on a le droit de clean la console.
-                    Console.Clear();
                     _writer.Display("Entrée des chiffres pas des lettres !!");
                     GetVehiculeState();
                 }
@@ -114,7 +112,7 @@ namespace ExoGarage.Model
             do
             {
                 _writer.Display("Entrer les kms :");
-                var vehiculeKm = Console.ReadLine();
+                var vehiculeKm = _reader.ReadText();
                 int numberkms;
                 bool succes = int.TryParse(vehiculeKm, out numberkms);
                 if (succes)
@@ -123,8 +121,6 @@ namespace ExoGarage.Model
                 }
                 else
                 {
-                    /// La aussi le clean
-                    Console.Clear();
                     _writer.Display("Entrée des chiffres pas des lettres!!");
                     GetvehiculeKms();
                 }
@@ -275,7 +271,6 @@ namespace ExoGarage.Model
                                     Vehicule voiture2 = new VehiculeFourWeels(4, vehiculeState, brand, model, newskms);
                                     _vehiculeList.Add(voiture2);
                                 }
-                                //Console.WriteLine(newsList[0]);
                             }
                         }
                     }

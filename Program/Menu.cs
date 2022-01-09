@@ -28,7 +28,7 @@ namespace ExoGarage.Program
         /// <summary>
         /// Affiche le main menu et attend un input du l'utilisateur.
         /// </summary>
-        public void ShowMainMenu()
+        internal void ShowMainMenu()
         {
             _writer.Display(
                 "\nBienvenue dans mon super Garage !!\n" + Environment.NewLine +
@@ -36,7 +36,9 @@ namespace ExoGarage.Program
                 "2. Ajouter un véhicule dans le garage." + Environment.NewLine +
                 "3. Editer/Mettre à jour un véhicule." + Environment.NewLine +
                 "4. Supprimer un véhicule du garage." + Environment.NewLine +
-                "5. Quit().");
+                "5. Quit()." + Environment.NewLine +
+                "6. Enregistrer/Sauvegarder Liste (Optionel)");
+
             GetMainMenuInput();
         }
 
@@ -44,9 +46,9 @@ namespace ExoGarage.Program
         /// Recupere ce que le user a tapé sur le main menu.
         /// Puis l'envoi sur le sous menu correspondant ou affiche la liste de vehicules.
         /// </summary>
-        public void GetMainMenuInput()
+        internal void GetMainMenuInput()
         {
-            var UserInputInt = _reader.ReadId(1, 5);
+            var UserInputInt = _reader.ReadId(1, 6);
             switch (UserInputInt)
             {
                 case 1:
@@ -64,6 +66,9 @@ namespace ExoGarage.Program
                 case 5:
                     Environment.Exit(0);
                     break;
+                case 6:
+                    ShowSaveLoadMenu();
+                    break;
             }
         }
 
@@ -74,7 +79,7 @@ namespace ExoGarage.Program
         /// Controle qu'il n'y ai pas 1 vehicules 4 roues deja present.
         /// Renvoie au garage qui l'ajoute a la liste.
         /// </summary>
-        public void ShowAddMenu()
+        internal void ShowAddMenu()
         {
             // Avant d'ajouter le vehicule, je verif que ya la place dans le garage
             if (_garage.garageIsFull)
@@ -99,8 +104,6 @@ namespace ExoGarage.Program
                     _writer.Display("\nEntrer le type de vehicule à ajouter:");
                     _writer.Display("1. Vélo/Moto - 2 roues.");
                     _writer.Display("2. Voiture - 4 roues.");
-                    
-                    _writer.Display("3. Retour au Menu.");
                     vehiculeType = _reader.ReadId(1, 2);
                 }
                 //Console.WriteLine(vehiculeType);
@@ -121,13 +124,13 @@ namespace ExoGarage.Program
                 switch(vehiculeType)
                 {
                     case 1:
-                        Vehicule voiture2 = new VehiculeTwoWeels(vehiculeState, vehiculeBrand, vehiculeModel, vehiculeKms);
+                        Vehicule voiture2 = new VehiculeTwoWeels(2, vehiculeState, vehiculeBrand, vehiculeModel, vehiculeKms);
                         // Jenvoie le vehicule dans le garage pour qu'il l'ajoute a la liste des vehicules
                         _garage.AddVehicule(voiture2);
                         break;
 
                     case 2:
-                        Vehicule voiture = new VehiculeFourWeels(vehiculeState, vehiculeBrand, vehiculeModel, vehiculeKms);
+                        Vehicule voiture = new VehiculeFourWeels(4, vehiculeState, vehiculeBrand, vehiculeModel, vehiculeKms);
                         // Jenvoie le vehicule dans le garage pour qu'il l'ajoute a la liste des vehicules
                         _garage.AddVehicule(voiture);
                         break;
@@ -187,7 +190,7 @@ namespace ExoGarage.Program
         /// Affiche le menu pour supp un vehicule.
         /// Affiche la liste des vehicules, recup le id user et le renvoi au garage pour le supp
         /// </summary>
-        public void ShowDeleteMenu()
+        internal void ShowDeleteMenu()
         {
             _writer.Display("Choisir le numero du véhicule à supprimer :");
             _garage.ShowVehiculeList();
@@ -197,6 +200,18 @@ namespace ExoGarage.Program
             int choiceMenuSupp = _reader.ReadId(1, listCount);
             // envoi lid a la fonction delete
             _garage.DeleteVehicule(choiceMenuSupp);
+        }
+
+
+        internal void ShowSaveLoadMenu()
+        {
+            _writer.Display(
+                "Vous voulez :" + Environment.NewLine +
+                "1. Charger la liste de vehicule." + Environment.NewLine +
+                "2. Enregistrer la liste de vehicule."
+            );
+            int choiceMenuSave = _reader.ReadId(1, 2);
+            _garage.SaveAndLoad(choiceMenuSave);
         }
     }
 }

@@ -11,14 +11,16 @@ namespace ExoGarage.Model
         // Je met le eid et un compteur en static qui sincrement a lajout de vehicule
         private readonly int _id;
 
+        private int _nbRoues;
         private VehiculeState _state;
         private string _brand;
         private string _modele;
         private int _kms;
 
-        public Vehicule(VehiculeState state, string brand, string modele, int kms)
+        public Vehicule(int nbRoues, VehiculeState state, string brand, string modele, int kms)
         {
             _id = IdCounter.New();
+            _nbRoues = nbRoues;
             _state = state;
             _brand = string.IsNullOrEmpty(brand) ? throw new ArgumentNullException(nameof(brand)) : brand;
             _modele = string.IsNullOrEmpty(modele) ? throw new ArgumentNullException(nameof(modele)) : modele;
@@ -28,6 +30,10 @@ namespace ExoGarage.Model
         public int Id
         {
             get { return _id; }
+        }
+        public int NbRoues
+        {
+            get { return _id; } 
         }
 
         public VehiculeState State
@@ -58,7 +64,7 @@ namespace ExoGarage.Model
         // Sert a faire afficher la liste des vehicules comme on veux.
         public override string ToString()
         {
-            return $"Id : {_id}" + $"  Etat : {_state}" + $"  Marque : {_brand}" + $"  Modele : {_modele}" + $"  Kilometre : {_kms}";
+            return $"NbRoues: {_nbRoues}" + $", Etat: {_state}" + $", Marque: {_brand}" + $", Modele: {_modele}" + $", Kilometre: {_kms}";
         }
     }
 }

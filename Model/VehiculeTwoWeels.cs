@@ -9,7 +9,7 @@ namespace ExoGarage.Model
 {
     internal class VehiculeTwoWeels : Vehicule
     {
-        public VehiculeTwoWeels(VehiculeState state, string brand, string modele, int kms) : base(state, brand, modele, kms)
+        public VehiculeTwoWeels(int nbRoues,VehiculeState state, string brand, string modele, int kms) : base(nbRoues, state, brand, modele, kms)
         {
         }
     }

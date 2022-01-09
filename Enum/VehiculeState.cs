@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ExoGarage.Enum
 {
-    public enum VehiculeState
+
+    enum VehiculeState
     {
         Bon,
         Moyen,
-        Mauvais,
+        Mauvais
     }
 
 

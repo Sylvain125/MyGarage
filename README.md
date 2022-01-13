@@ -1,7 +1,4 @@
 ## Présentation du projet Fantastic3D.
-<a href="https://zupimages.net/viewer.php?id=22/02/mo8w.png"><img src="https://zupimages.net/up/22/02/mo8w.png" alt="" /></a>
-
-
 <a href="https://zupimages.net/viewer.php?id=22/02/3ak5.png"><img src="https://zupimages.net/up/22/02/3ak5.png" alt="" /></a>
 Fantastic3d, c'est un site de téléchargement et/ou de mise en vente de ressources 3D pour les particuliers et les proffesionels.
 Il s'adresse principalement aux infographistes 3D mais aussi aux développeurs de jeux vidéo et toutes personnes étant amenée à apprendre, utiliser ou créer une scène en 3D.

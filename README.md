@@ -1,46 +1,62 @@
-# Exercice : MyGarage
+## Présentation du projet Fantastic3D.<a href="https://zupimages.net/viewer.php?id=22/02/mo8w.png"><img src="https://zupimages.net/up/22/02/mo8w.png" alt="" /></a>
 
-MyGarage est un exercice que nous avons eu a faire durant la formation de devops.
 
-## Screen 
-<a href="https://zupimages.net/viewer.php?id=22/01/iof9.png"><img src="https://zupimages.net/up/22/01/iof9.png" alt="" /></a>
-## Exercice :
-Créer une application console (dotnet 5.0 ou dotnet 6.0) qui permet de gérer un garage virtuel.
+<a href="https://zupimages.net/viewer.php?id=22/02/3ak5.png"><img src="https://zupimages.net/up/22/02/3ak5.png" alt="" /></a>
+Fantastic3d, c'est un site de téléchargement et/ou de mise en vente de ressources 3D pour les particuliers et les proffesionels.
+Il s'adresse principalement aux infographistes 3D mais aussi aux développeurs de jeux vidéo et toutes personnes étant amenée à apprendre, utiliser ou créer une scène en 3D.
 
-## Structure
-L'application doit au moins posséder le class Garage qui est la classe qui va permettre de gérer son garage. Cette classe ne doit pas contenir d'appels à Console.WriteLine
+## Caractéristiques :
+Le projet répond à plusieurs besoins utilisateurs :
+- Sur la conception de leur modèles 3D.
+- Sur la création de scènes 3D.
+- Aux développeurs pour les intégrer dans leur environnement .
+- Pour un débutant qui aurai besoin d'un modèle pour apprendre à modéliser en 3D.
 
-## Règles
-Il est possible d'effectuer les opérations suivantes au sein de l'application :
+Il permet aussi aux membres du site qui souhaitent monétiser leurs créations 3D, de les mettre en vente sur notre site et ainsi gagner de l'argent à travers leurs créations.
+Les membres disposent d’une page de portfolio présentant leurs créations et proposant de les contacter.
+Sous réserve de validation des modèles par les administrateurs.
+Une commission est reversée au site lors de la vente de leurs modèles. 
 
-Ajouter un nouveau véhicule dans le garage  
-Enlever un véhicule du garage  
-Mettre à jour l'état d'un véhicule  
-Lister les véhicules actuellement dans le garage  
-Quitter l'application  
-Le garage possède les règles suivantes :
+## Fonctionnement :
+Le site dispose d'un système de connexion des utilisateurs, la connexion à son compte est impérative pour tout téléchargement de modèles 3D.
+De plus, les utilisateurs peuvent s’abonner au site en mode premium.
+Ce qui leur donne accès au téléchargement de certains modèles (les modèles les plus aboutis, ceux qui sont libres de droits, etc.)
+Les utilisateurs ont aussi une wishlist : un simple clic sur l’icône correspondante, permet l'ajout a la wishlist, consultable depuis leurs profils.
 
-Il ne peut pas y avoir plus de 5 véhicules au sein du garage
-Le garage peut contenir des véhicules à 2 roues (moto, vélo, trotinette) ou 4 roues (voiture, pot de yaourt)
-Il ne peut pas y avoir plus de 2 véhicules à 4 roues dans le garage
-Un véhicule possède au moins les caractéristiques suivantes :
+Les utilisateurs peuvent déposer des avis avec une note sur 5 étoiles et un commentaire facultatif. 
+Ces avis ne sont publiés en ligne qu’après validation d’un administrateur.
 
-Un identifiant unique sous la forme d'un nombre incrémental
-Un marque  
-Un modèle  
-Un kilométrage  
-Il est possible d'avoir d'autres attributs qui peuvent être liés au type de véhicule
+Le site se présente sous la forme d’un catalogue, il permet de rechercher des modèles 3D selon différents critères :
+- Catégories.
+- Type de modèle.
+- Thématiques.
+- Style graphique (cartoon, réaliste, low-poly).
+- Format de fichier.
+- Directement par recherche texte.
 
-## Notions attendues
-Classes  
-Héritage  
-Exceptions  
-Enums  
-Static  
-Encapsulation  
-(Chaînage de méthodes/constructeurs)  
-Interface / classes abstraites  
-(Utilisation d'une bibliothèque de classe pour les règles métiers)  
-### Optionnels  
-Ajouter un système de logs (de base, serilog etc...)
-Sauvegarder l'état du garage dans un fichier local afin de sauvegarder son garage entre les démarrages de l'application
+Les pages de modèles sont gérées par les administrateurs, via un client lourd dédié.
+Les informations sont présentées de manière claire, car ce sont des informations cruciales pour ceux qui souhaitent les télécharger.
+Les pages des modèles indiquent les différentes informations : 
+- Le nom
+- Le descriptif
+- Le visuel
+- Le format
+- Ce qui est inclus (animation ? textures? ) 
+- La licence attachée au modèle.
+
+Le site est géré via un client lourd en C#, il permet de consulter les statistiques d’achat et de téléchargement des modèles 3D.
+Les administrateurs peuvent directement ajouter des modèles 3D, valider les modèles envoyées par les utilisateurs ainsi que les avis et commentaires.
+Les fiches « modèles 3D » sont éditables pour ajouter les informations des fiches modèles.
+
+Le site est conçu de manière évolutive, il permet en outre d’ajouter d’autres types de ressources que des modèles 3D. 
+Par exemple des sons, des sprites 2D, etc.
+
+## Composants du projet :
+
+- Application Console pour la gestion des tags :
+<a href="https://ibb.co/hBZ8PKz"><img src="https://i.ibb.co/hBZ8PKz/Projet-App-Console.png" alt="Projet-App-Console" border="0"></a>
+
+- Le clients lourd WPF :
+<a href="https://ibb.co/sWW5WDG"><img src="https://i.ibb.co/sWW5WDG/Projet-WPF.png" alt="Projet-WPF" border="0"></a>
+- Service WCF :
+<a href="https://ibb.co/Xst0LcF"><img src="https://i.ibb.co/Xst0LcF/Projet-Wpf-Reader.png" alt="Projet-Wpf-Reader" border="0"></a>
